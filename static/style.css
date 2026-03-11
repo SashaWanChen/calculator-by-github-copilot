@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.calculator {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 
+        0 25px 45px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.display {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.expression {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.2rem;
+    min-height: 25px;
+    word-break: break-all;
+    text-align: right;
+}
+
+.result {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 300;
+    word-break: break-all;
+    text-align: right;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.btn {
+    width: 70px;
+    height: 70px;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn.number {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.btn.number:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.btn.operator {
+    background: rgba(255, 255, 255, 0.1);
+    color: #e94560;
+}
+
+.btn.operator:hover {
+    background: rgba(233, 69, 96, 0.3);
+}
+
+.btn.equals {
+    background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%);
+    color: #fff;
+}
+
+.btn.equals:hover {
+    background: linear-gradient(135deg, #ff6b6b 0%, #e94560 100%);
+    box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4);
+}
+
+/* Loading state */
+.btn.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Error state */
+.result.error {
+    color: #ff6b6b;
+    font-size: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+    .btn {
+        width: 60px;
+        height: 60px;
+        font-size: 1.2rem;
+    }
+    
+    .result {
+        font-size: 2rem;
+    }
+}
